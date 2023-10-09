@@ -18,11 +18,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pwd
     - name: Fetch .env file
       run: |
-        echo ${{ secrets.NEO_ENV_FILE }} > .env
-        ls -a
+        echo ${{ secrets.NEO_ENV_FILE }} | base64 -d > .env
     - name: Run Tests
       run: |
         python manage.py test
