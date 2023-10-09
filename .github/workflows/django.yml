@@ -18,11 +18,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        ls
+        pwd
     - name: Fetch .env file
       run: |
         echo ${{ secrets.NEO_ENV_FILE }} > .env
-        ls
+        ls -a
     - name: Run Tests
       run: |
         python manage.py test
