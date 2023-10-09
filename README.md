@@ -15,7 +15,7 @@ docker run -d -p <machine-port>:<container-port> --env-file <env-file> --name <c
 ## Using docker-compose
 
 Use docker compose command to create image and container in a single command
-```
+```sh
 # In the directory where docker-compose.yml file exists
 docker compose up -d
 ```
