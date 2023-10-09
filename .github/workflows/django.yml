@@ -20,7 +20,9 @@ jobs:
         pip install -r requirements.txt
         ls
     - name: Fetch .env file
-      run: cat ${{ secrets.NEO_ENV_FILE }} > ./.env
+      run: |
+        echo ${{ secrets.NEO_ENV_FILE }} > .env
+        cat .env
     - name: Run Tests
       run: |
         python manage.py test
