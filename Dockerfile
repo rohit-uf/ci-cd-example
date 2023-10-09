@@ -6,8 +6,10 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN apk update && pip3 install --no-cache-dir -r requirements.txt
+RUN apk update && \
+    pip3 install --upgrade pip && \
+    pip3 install --no-cache-dir -r requirements.txt
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "localhost:80", "--workers", "3", "--reload", "ci_cd_example.wsgi"]
+CMD ["sh", "entrypoint.sh"]

@@ -11,27 +11,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
-import environ
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+if os.path.exists(os.path.join(BASE_DIR, '.env')):
+    load_dotenv(os.path.join(BASE_DIR, ".env"), override=True)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG')
+DEBUG = os.environ['DEBUG'] == 'true'
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
-ALLOWED_HOSTS = env.str('ALLOWED_HOSTS').split(',')
+DEPLOYMENT_KEY = os.environ['DEPLOYMENT_KEY']
 
 # Application definition
 
@@ -80,12 +79,12 @@ WSGI_APPLICATION = 'ci_cd_example.wsgi.application'
 
 DATABASES = {
   'default': {
-      'ENGINE': env.str('DATABASE_ENGINE'),
-      'NAME': env.str('DATABASE_NAME'),
-      'HOST': env.str('DATABASE_HOST'),
-      'PORT': env.str('DATABASE_PORT'),
-      'USER': env.str('DATABASE_USER'),
-      'PASSWORD': env.str('DATABASE_PASSWORD'),
+      'ENGINE': os.environ['DATABASE_ENGINE'],
+      'NAME': os.environ['DATABASE_NAME'],
+      'HOST': os.environ['DATABASE_HOST'],
+      'PORT': os.environ['DATABASE_PORT'],
+      'USER': os.environ['DATABASE_USER'],
+      'PASSWORD': os.environ['DATABASE_PASSWORD'],
   }
 }
 
