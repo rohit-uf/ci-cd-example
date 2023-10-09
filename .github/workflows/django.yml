@@ -22,7 +22,7 @@ jobs:
     - name: Fetch .env file
       run: |
         echo ${{ secrets.NEO_ENV_FILE }} > .env
-        cat .env
+        ls
     - name: Run Tests
       run: |
         python manage.py test
