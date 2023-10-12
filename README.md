@@ -19,3 +19,7 @@ Use docker compose command to create image and container in a single command
 # In the directory where docker-compose.yml file exists
 docker compose up -d
 ```
+
+## Installation on server
+
+Steps: `https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository`
