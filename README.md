@@ -23,3 +23,10 @@ docker compose up -d
 ## Installation on server
 
 Steps: `https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository`
+
+Authenticate
+
+```sh
+sudo docker login ghcr.io
+# Then put username and password
+```
