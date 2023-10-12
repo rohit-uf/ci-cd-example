@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  BASE64_ENCODED_ENV: ${{ secrets.NEO_ENV_FILE }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Fetch .env file
       run: |
-        echo 'aGVsbG8=' | base64 -d > .env
+        echo ${{ env.BASE64_ENCODED_ENV }} | base64 -d > .env
     - name: Run Tests
       run: |
         python manage.py test
