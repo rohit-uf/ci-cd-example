@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v3
     - name: Install Dependencies
@@ -18,7 +19,7 @@ jobs:
         pip install -r requirements.txt
     - name: Fetch .env file
       run: |
-        echo ${{ secrets.NEO_ENV_FILE }} | base64 -d > .env
+        echo 'aGVsbG8=' | base64 -d > .env
     - name: Run Tests
       run: |
         python manage.py test
