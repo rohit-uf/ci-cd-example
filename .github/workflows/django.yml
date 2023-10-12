@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Fetch .env file
       run: |
-        echo '${{ env.BASE64_ENCODED_ENV }}' > .env
+        echo '${{ env.BASE64_ENCODED_ENV }}' | base64 -d > .env
     - name: Run Tests
       run: |
         python manage.py test
