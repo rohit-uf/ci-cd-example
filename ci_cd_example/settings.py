@@ -32,7 +32,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = os.environ['DEBUG'] == 'true'
 ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
-DEPLOYMENT_KEY = os.environ['DEPLOYMENT_KEY']
+DEPLOYMENT_KEY = 3
 
 # Application definition
 
