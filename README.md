@@ -39,3 +39,13 @@ sudo docker login ghcr.io
 - Goto `Repository Settings`
 - Goto `Actions` -> `General`
 - Under `Workflow permissions`, make sure `Read and Write Permissions` is selected
+
+
+## Branch Rules
+- Goto `Repository Settings` and open `Branches` under `Code and Automation`
+- Enabled the following checkboxes
+  - Require a pull request before merging
+  - Require status checks to pass before merging
+  - Require branches to be up to date before merging
+  - Require conversation resolution before merging
+  - Do not allow bypassing the above settings
