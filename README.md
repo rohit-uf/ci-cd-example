@@ -30,3 +30,12 @@ Authenticate
 sudo docker login ghcr.io
 # Then put username and password
 ```
+
+
+## Access
+
+- Goto `Package Settings`
+- Under `Manage Access`, make sure the repository accessing the packages is added with `Write` role
+- Goto `Repository Settings`
+- Goto `Actions` -> `General`
+- Under `Workflow permissions`, make sure `Read and Write Permissions` is selected
