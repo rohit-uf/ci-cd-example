@@ -1,0 +1,15 @@
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  event:
+  - push
+  branch:
+  - main
+
+steps:
+- name: greeting
+  image: alpine
+  commands:
+  - echo "hello 2"
