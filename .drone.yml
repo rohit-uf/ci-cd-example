@@ -13,3 +13,6 @@ steps:
   image: alpine
   commands:
   - echo "hello 2"
+
+node:
+  buildux_neo: server
